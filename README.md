@@ -73,6 +73,11 @@ Linux: [![Circle CI](https://circleci.com/gh/conda-forge/hdfeos2-feedstock.svg?s
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/hdfeos2-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/hdfeos2-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/hdfeos2-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/hdfeos2-feedstock/branch/master)
 
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/hdfeos2/badges/version.svg)](https://anaconda.org/conda-forge/hdfeos2)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/hdfeos2/badges/downloads.svg)](https://anaconda.org/conda-forge/hdfeos2)
+
 
 Updating hdfeos2-feedstock
 ==========================
