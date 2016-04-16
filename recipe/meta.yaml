@@ -8,18 +8,18 @@ source:
     md5: b8648484fc78a2db7073dd603f3fb251
 
 build:
-    number: 2
+    number: 3
     skip: True  # [win]
 
 requirements:
     build:
         - hdf4
         - zlib
-        - jpeg
+        - jpeg 9b
     run:
         - hdf4
         - zlib
-        - jpeg
+        - jpeg 9b
 
 test:
     commands:
