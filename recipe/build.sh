@@ -7,7 +7,8 @@ export CFLAGS="-fPIC"
 ./configure --prefix=${PREFIX} \
             --with-hdf4=${PREFIX} \
             --with-zlib=${PREFIX} \
-            --with-jpeg=${PREFIX}
+            --with-jpeg=${PREFIX} \
+            --enable-install-include
 
 make
 make check
