@@ -5,30 +5,29 @@ package:
   version: {{ version }}
 
 source:
-  fn: HDF-EOS2.19v1.00.tar.Z
   url: ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos/latest_release/HDF-EOS2.19v1.00.tar.Z
   sha256: 3fffa081466e85d2b9436d984bc44fe97bbb33ad9d8b7055a322095dc4672e31
 
 build:
-  number: 7
+  number: 8
   skip: True  # [win]
 
 requirements:
   build:
     - hdf4 4.2.*
-    - zlib 1.2.*
+    - zlib 1.2.11
     - jpeg 9*
   run:
     - hdf4 4.2.*
-    - zlib 1.2.*
+    - zlib 1.2.11
     - jpeg 9*
 
 test:
   commands:
     - test -f ${PREFIX}/lib/libGctp.a  # [not win]
     - test -f ${PREFIX}/lib/libhdfeos.a  # [not win]
-    #- conda inspect linkages -p $PREFIC hdfeos2  # [not win]
-    #- conda inspect objects -p $PREFIX hdfeos2  # [osx]
+    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
+    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://hdfeos.org/index.php
