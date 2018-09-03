@@ -1,26 +1,28 @@
-{% set version = "2.19.1" %}
+{% set version = "2.20" %}
 
 package:
   name: hdfeos2
   version: {{ version }}
 
 source:
-  url: ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos/latest_release/HDF-EOS2.19v1.00.tar.Z
-  sha256: 3fffa081466e85d2b9436d984bc44fe97bbb33ad9d8b7055a322095dc4672e31
+  url: ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos/latest_release/HDF-EOS{{ version }}v1.00.tar.Z
+  sha256: cb0f900d2732ab01e51284d6c9e90d0e852d61bba9bce3b43af0430ab5414903
 
 build:
-  number: 8
+  number: 0
   skip: True  # [win]
 
 requirements:
   build:
-    - hdf4 4.2.*
-    - zlib 1.2.11
-    - jpeg 9*
+    - {{ compiler('c') }}
+  host:
+    - hdf4
+    - zlib
+    - jpeg
   run:
-    - hdf4 4.2.*
-    - zlib 1.2.11
-    - jpeg 9*
+    - hdf4
+    - zlib
+    - jpeg
 
 test:
   commands:
@@ -32,7 +34,7 @@ test:
 about:
   home: http://hdfeos.org/index.php
   license: Public Domain
-  summary: 'Earth Observing System HDF.'
+  summary: 'Earth Observing System HDF'
 
 extra:
   recipe-maintainers:
