@@ -3,7 +3,6 @@
 chmod -R +w .
 autoreconf -vfi
 
-export CC=${PREFIX}/bin/h4cc
 export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
 export CFLAGS="-fPIC $CFLAGS"
 
