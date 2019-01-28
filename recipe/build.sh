@@ -16,8 +16,8 @@ export CFLAGS="-fPIC $CFLAGS"
             --enable-install-include
 
 make -j${CPU_COUNT}
-make check
 make install
+make check
 
 pushd include
 make install-includeHEADERS
