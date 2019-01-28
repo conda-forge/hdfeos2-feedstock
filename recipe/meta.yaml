@@ -5,10 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: 
-    - ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos/latest_release/HDF-EOS{{ version }}v1.00.tar.Z
-    - http://jnb.za.distfiles.macports.org/distfiles/hdfeos/HDF-EOS{{ version }}v1.00.tar.Z
+  url: https://observer.gsfc.nasa.gov/ftp/edhs/hdfeos/latest_release/HDF-EOS{{ version }}v1.00.tar.Z
   sha256: cb0f900d2732ab01e51284d6c9e90d0e852d61bba9bce3b43af0430ab5414903
+  patches:
+  # https://lists.gnu.org/archive/html/guix-devel/2016-09/msg02110.html
+  - 0001-fix-automake-files-for-linux-compatibility.patch
 
 build:
   number: 1000
@@ -17,6 +18,10 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - autoconf
+    - automake
+    - libtool
   host:
     - hdf4
     - zlib
@@ -30,8 +35,6 @@ test:
   commands:
     - test -f ${PREFIX}/lib/libGctp.a  # [not win]
     - test -f ${PREFIX}/lib/libhdfeos.a  # [not win]
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://hdfeos.org/index.php
