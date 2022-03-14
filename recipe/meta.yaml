@@ -5,16 +5,17 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://observer.gsfc.nasa.gov/ftp/edhs/hdfeos/latest_release/HDF-EOS{{ version }}v1.00.tar.Z
+  # links can obtained from https://wiki.earthdata.nasa.gov/display/DAS/Toolkit+Downloads
+  - url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos/cb0f900d2732ab01e51284d6c9e90d0e852d61bba9bce3b43af0430ab5414903?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS2.20v1.00.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS2.20v1.00.tar.Z
     sha256: cb0f900d2732ab01e51284d6c9e90d0e852d61bba9bce3b43af0430ab5414903
     patches:
       # https://lists.gnu.org/archive/html/guix-devel/2016-09/msg02110.html
       - 0001-fix-automake-files-for-linux-compatibility.patch
-  - url: https://observer.gsfc.nasa.gov/ftp/edhs/hdfeos/latest_release/HDF-EOS{{ version }}v1.00_TestDriver.tar.Z
+  - url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos/21bdbcd977c11b5a1779a82aebc0338b4adbc94107329e2c917a274924c20c5a?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS2.20v1.00_TestDriver.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS2.20v1.00_TestDriver.tar.Z
     sha256: 21bdbcd977c11b5a1779a82aebc0338b4adbc94107329e2c917a274924c20c5a
 
 build:
-  number: 1000
+  number: 1001
   skip: True  # [win]
 
 requirements:
@@ -24,6 +25,7 @@ requirements:
     - autoconf
     - automake
     - libtool
+    - make    # [unix]
   host:
     - hdf4
     - zlib
