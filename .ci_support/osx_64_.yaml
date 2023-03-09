@@ -14,8 +14,8 @@ cxx_compiler_version:
 - '14'
 hdf4:
 - 4.2.15
-jpeg:
-- '9'
+libjpeg_turbo:
+- 2.1.5
 macos_machine:
 - x86_64-apple-darwin13.4.0
 target_platform:
