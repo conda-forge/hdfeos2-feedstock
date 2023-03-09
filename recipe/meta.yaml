@@ -15,7 +15,7 @@ source:
     sha256: 21bdbcd977c11b5a1779a82aebc0338b4adbc94107329e2c917a274924c20c5a
 
 build:
-  number: 1002
+  number: 1003
   skip: True  # [win]
 
 requirements:
@@ -29,11 +29,11 @@ requirements:
   host:
     - hdf4
     - zlib
-    - jpeg
+    - libjpeg-turbo
   run:
     - hdf4
     - zlib
-    - jpeg
+    - libjpeg-turbo
 
 test:
   commands:
