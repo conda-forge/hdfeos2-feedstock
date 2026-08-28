@@ -4,7 +4,7 @@ chmod -R +w .
 autoreconf -vfi
 
 export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
-export CFLAGS="-fPIC -Wno-error=implicit-int -Wno-error=implicit-function-declaration $CFLAGS"
+export CFLAGS="-fPIC -Wno-error=implicit-int -Wno-error=implicit-function-declaration -Wno-error=incompatible-pointer-types $CFLAGS"
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 && $target_platform == "osx-arm64" ]]; then
     export he2_cv_f2cFortran_defined=no
