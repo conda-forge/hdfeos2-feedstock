@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hdfeos2-feedsto
 
 Home: http://hdfeos.org/index.php
 
-Package license: Public Domain
+Package license: LicenseRef-Public-Domain
 
 Summary: Earth Observing System HDF
 

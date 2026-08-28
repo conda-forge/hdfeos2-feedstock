@@ -1,8 +1,11 @@
-{% set version = "2.20" %}
+
+context:
+  name: hdfeos2
+  version: "2.20"
 
 package:
-  name: hdfeos2
-  version: "{{ version }}"
+  name: ${{ name }}
+  version: ${{ version }}
 
 source:
   # links can obtained from https://wiki.earthdata.nasa.gov/display/DAS/Toolkit+Downloads
@@ -16,17 +19,20 @@ source:
 
 build:
   number: 1005
-  skip: True  # [win]
+  skip:
+    - win
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - {{ stdlib("c") }}
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
     - autoconf
     - automake
     - libtool
-    - make    # [unix]
+    - if: unix
+      then: 
+        - make
   host:
     - hdf4
     - zlib
@@ -36,15 +42,17 @@ requirements:
     - zlib
     - libjpeg-turbo
 
-test:
-  commands:
-    - test -f ${PREFIX}/lib/libGctp.a  # [not win]
-    - test -f ${PREFIX}/lib/libhdfeos.a  # [not win]
+tests:
+  - package_contents:
+      include:
+        - ${PREFIX}/lib/libGctp.a
+        - ${PREFIX}/lib/libhdfeos.a
 
 about:
-  home: http://hdfeos.org/index.php
-  license: Public Domain
-  summary: 'Earth Observing System HDF'
+  homepage: http://hdfeos.org/index.php
+  license: LicenseRef-Public-Domain
+  license_file: bin/INSTALL
+  summary: Earth Observing System HDF
 
 extra:
   recipe-maintainers:
