@@ -2,7 +2,7 @@
 
 package:
   name: hdfeos2
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   # links can obtained from https://wiki.earthdata.nasa.gov/display/DAS/Toolkit+Downloads
@@ -15,13 +15,14 @@ source:
     sha256: 21bdbcd977c11b5a1779a82aebc0338b4adbc94107329e2c917a274924c20c5a
 
 build:
-  number: 1004
+  number: 1005
   skip: True  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - autoconf
     - automake
     - libtool
