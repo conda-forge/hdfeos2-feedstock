@@ -2,7 +2,7 @@
 
 package:
   name: hdfeos2
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   # links can obtained from https://wiki.earthdata.nasa.gov/display/DAS/Toolkit+Downloads
@@ -22,6 +22,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - autoconf
     - automake
     - libtool
